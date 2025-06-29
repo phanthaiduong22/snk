@@ -77,8 +77,9 @@ export const createSnake = (
 
       let colorAnimation = "";
       if (Array.isArray(colorSnake)) {
+        const colorCycles = 3;
         const colorKeyframes = keyframes.map((frame, frameIndex) => {
-          const colorIndex = Math.floor((frameIndex / keyframes.length) * colorSnake.length) % colorSnake.length;
+          const colorIndex = Math.floor((frameIndex / keyframes.length) * colorSnake.length * colorCycles) % colorSnake.length;
           return { t: frame.t, style: `fill: ${colorSnake[colorIndex]}` };
         });
         
